@@ -32,6 +32,38 @@ html * {
 	margin: 0;
 }
 
+header {
+    background: #ABBF78;
+    border-bottom: 1px solid #ACADB1;
+}
+
+header nav {
+    text-align: center;
+}
+header nav a {
+    color: #172E41;
+    display: inline-block;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 1.2em;
+    margin: 0 0.1em 0.5em;
+    padding: 0.3em;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #F1F2F4;
+}
+header nav a.login {
+    height: 34px;
+    padding: 0;
+    right: 10px;
+    top: 21px;
+    width: 70px;
+}
+header nav a.active {
+    color: #3D6A90;
+}
+header nav a span {
+    display: none;
+}
+
 body {
 	background: #ffffff;
 	color: #333333;
@@ -43,6 +75,45 @@ body {
 	        box-shadow: 0 0 0.3em #255b17;
 }
 
+.wrap {
+    margin: 0 auto;
+    min-width: 280px;
+    padding: 0 20px;
+}
+
+footer {
+    background: url("../images/bg-footer.jpg") repeat-x scroll center top transparent;
+    color: #94A6B5;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 0.9em;
+}
+footer .wrap {
+    padding: 12px 0 10px;
+    text-align: center;
+}
+footer #footerCols, footer p span.links {
+    display: none;
+}
+footer a, footer nav a {
+    color: #94A6B5;
+}
+footer nav a {
+    display: inline-block;
+    padding: 0.3em 0.8em;
+    text-decoration: none;
+}
+footer a:hover, footer nav a:hover {
+    color: #E6E1D8;
+    text-decoration: none;
+}
+footer p {
+    margin-bottom: 0.4em;
+}
+footer p a {
+    color: #94A6B5;
+    font-weight: bold;
+    text-decoration: none;
+}
 #grailsLogo {
 	background-color: #abbf78;
 }
@@ -103,7 +174,7 @@ img {
 	border: none;
 }
 
-.footer {
+footer {
 	background: #abbf78;
 	color: #000;
 	clear: both;
@@ -113,7 +184,7 @@ img {
 	min-height: 1em;
 }
 
-.footer a {
+footer a {
 	color: #255b17;
 }
 

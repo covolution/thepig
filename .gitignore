@@ -2,3 +2,4 @@
 target/
 .DS_Store
 stacktrace.log
+target-eclipse/
