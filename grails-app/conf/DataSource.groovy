@@ -11,6 +11,7 @@ environments {
     development {
         dataSource {
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
+			//dialect = "org.hibernate.dialect.H2Dialect"
             url = "jdbc:h2:mem:devDb;MVCC=TRUE"
             driverClassName = "org.h2.Driver"
             username = "sa"
@@ -32,7 +33,7 @@ environments {
           url = "jdbc:cloudbees://pigdb"
           username = "pigit"
           password = "pigout"
-   	  driverClassName = "com.cloudbees.jdbc.Driver"
+          driverClassName = "com.cloudbees.jdbc.Driver"
            // For MySQL production scenarios enable the following settings
           properties {
                minEvictableIdleTimeMillis=1800000

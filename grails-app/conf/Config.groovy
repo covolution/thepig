@@ -1,3 +1,10 @@
+import org.joda.time.DateTime
+import org.joda.time.LocalDate
+import org.joda.time.LocalDateTime
+import org.joda.time.contrib.hibernate.PersistentDateTime
+import org.joda.time.contrib.hibernate.PersistentLocalDate
+import org.joda.time.contrib.hibernate.PersistentLocalDateTime
+
 // locations to search for config files that get merged into the main config
 // config files can either be Java properties files or ConfigSlurper scripts
 
@@ -34,7 +41,12 @@ grails.mime.types = [ html: ['text/html','application/xhtml+xml'],
 // What URL patterns should be processed by the resources plugin
 grails.resources.adhoc.patterns = ['/images/*', '/css/*', '/js/*', '/plugins/*']
 
-
+grails.resources.modules = {
+	modernizr {
+		dependsOn 'jquery'
+		resource url:'/js/modernizr-2.0.6.min.js', disposition: 'head'
+	}
+}
 // The default codec used to encode data with ${}
 grails.views.default.codec = "none" // none, html, base64
 grails.views.gsp.encoding = "UTF-8"
@@ -76,7 +88,7 @@ log4j = {
     // appender:
     //
     appenders {
-        console name:'stdout', layout:pattern(conversionPattern: '%d [%t] %-5p %c - %m%n'), threshold: org.apache.log4j.Level.DEBUG
+        console name:'stdout', layout:pattern(conversionPattern: '%d [%t] %-5p %c - %m%n'), threshold: org.apache.log4j.Level.INFO
     }
 
     error  'org.codehaus.groovy.grails.web.servlet',  //  controllers
@@ -104,6 +116,12 @@ log4j = {
     }
 }
 
+jodatime.format.html5 = true
+grails.gorm.default.mapping = {
+	"user-type" type: PersistentDateTime, class: DateTime
+	"user-type" type: PersistentLocalDate, class: LocalDate
+	"user-type" type: PersistentLocalDateTime, class:LocalDateTime
+}
 // Added by the Spring Security Core plugin:
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.thepig.Person'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.thepig.PersonRole'
