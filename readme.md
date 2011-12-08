@@ -19,7 +19,7 @@ Here are the requirements:
 ## Project information
 
 * Source: https://github.com/covolution/thepig
-* Web: http://thepig.covolution.cloudbees.net/
+* Web site: http://goo.gl/EUXcB
 * Build: https://covolution.ci.cloudbees.com/job/thepig/
 
 ## Major components:
