@@ -1,5 +1,8 @@
 import org.codehaus.groovy.grails.plugins.web.taglib.JavascriptTagLib
+import org.joda.time.DateTime
 
+import thepig.Feast
+import thepig.FeastStatus
 import thepig.Ingredient
 import thepig.IngredientGroup
 
@@ -32,6 +35,8 @@ class BootStrap {
 		new Ingredient(ingredientGroup:IngredientGroup.EXTRA, name: "Fried Egg").save(flush:true)
 		new Ingredient(ingredientGroup:IngredientGroup.SAUCE, name: "Red").save(flush:true)
 		new Ingredient(ingredientGroup:IngredientGroup.SAUCE, name: "Brown").save(flush:true)
+		
+		new Feast(host:testUser, status:FeastStatus.OPEN, dueAt:new DateTime()).save(flush:true)
     }
     def destroy = {
     }

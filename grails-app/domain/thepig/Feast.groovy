@@ -15,7 +15,7 @@ class Feast {
 	FeastStatus status
 	DateTime dueAt
 	
-	static hasMany = { meals : Meal}
+	static hasMany = [ meals : Meal]
 	
     static constraints = {
     }

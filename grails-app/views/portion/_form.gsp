@@ -15,7 +15,7 @@
 		<g:message code="portion.ingredient.label" default="Ingredient" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="ingredient" name="ingredient.id" from="${thepig.Ingredient.list()}" optionKey="id" required="" value="${portionInstance?.ingredient?.id}" class="many-to-one"/>
+	<g:select id="ingredient" name="ingredient.id" from="${thepig.Ingredient.list()}" optionKey="id" required="" optionValue="name" value="${portionInstance?.ingredient?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: portionInstance, field: 'meal', 'error')} required">

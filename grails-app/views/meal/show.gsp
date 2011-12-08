@@ -27,7 +27,7 @@
 				<li class="fieldcontain">
 					<span id="feast-label" class="property-label"><g:message code="meal.feast.label" default="Feast" /></span>
 					
-						<span class="property-value" aria-labelledby="feast-label"><g:link controller="feast" action="show" id="${mealInstance?.feast?.id}">${mealInstance?.feast?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="feast-label"><g:link controller="feast" action="show" id="${mealInstance?.feast?.id}"><joda:format value="${mealInstance?.feast?.dueAt}" /></g:link></span>
 					
 				</li>
 				</g:if>
@@ -36,7 +36,18 @@
 				<li class="fieldcontain">
 					<span id="person-label" class="property-label"><g:message code="meal.person.label" default="Person" /></span>
 					
-						<span class="property-value" aria-labelledby="person-label"><g:link controller="person" action="show" id="${mealInstance?.person?.id}">${mealInstance?.person?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="person-label"><g:link controller="person" action="show" id="${mealInstance?.person?.id}">${mealInstance?.person?.username}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${mealInstance?.portions}">
+				<li class="fieldcontain">
+					<span id="portions-label" class="property-label"><g:message code="meal.ingredients.label" default="Ingredients" /></span>
+					
+						<g:each in="${mealInstance.portions}" var="p">
+						<span class="property-value" aria-labelledby="portions-label"><g:link controller="portion" action="show" id="${p.id}">${p?.ingredient.name}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>

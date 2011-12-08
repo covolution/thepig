@@ -31,7 +31,7 @@
 						Welcome <sec:username />!, <g:link controller="logout">Logout</g:link>
 					</sec:ifLoggedIn>
 					<sec:ifNotLoggedIn>
-						<a class="login" href="login">Login</a>
+						<a class="login" href="/thepig/login">Login</a>
 					</sec:ifNotLoggedIn>
 				</nav>
 			</section>

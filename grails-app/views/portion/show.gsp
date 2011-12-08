@@ -36,7 +36,7 @@
 				<li class="fieldcontain">
 					<span id="ingredient-label" class="property-label"><g:message code="portion.ingredient.label" default="Ingredient" /></span>
 					
-						<span class="property-value" aria-labelledby="ingredient-label"><g:link controller="ingredient" action="show" id="${portionInstance?.ingredient?.id}">${portionInstance?.ingredient?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="ingredient-label"><g:link controller="ingredient" action="show" id="${portionInstance?.ingredient?.id}">${portionInstance?.ingredient?.name}</g:link></span>
 					
 				</li>
 				</g:if>

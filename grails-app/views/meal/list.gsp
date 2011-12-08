@@ -34,9 +34,9 @@
 				<g:each in="${mealInstanceList}" status="i" var="mealInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${mealInstance.id}">${fieldValue(bean: mealInstance, field: "feast")}</g:link></td>
+						<td><g:link action="show" id="${mealInstance.id}"><joda:format value="${mealInstance?.feast?.dueAt}" /></g:link></td>
 					
-						<td>${fieldValue(bean: mealInstance, field: "person")}</td>
+						<td>${fieldValue(bean: mealInstance, field: "person.username")}</td>
 					
 					</tr>
 				</g:each>

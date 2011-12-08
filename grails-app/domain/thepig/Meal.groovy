@@ -6,10 +6,10 @@ class Meal {
 
 	Person person
 	
-	static hasMany = { portions : Portion}
-	
+	static hasMany = [ portions : Portion]	
 	static belongsTo = [ feast: Feast]
 	
     static constraints = {
+		person(unique:'feast')
     }
 }

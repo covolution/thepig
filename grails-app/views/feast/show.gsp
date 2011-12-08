@@ -49,6 +49,20 @@
 					
 				</li>
 				</g:if>
+				
+				<g:if test="${feastInstance?.meals}">
+				<li class="fieldcontain">
+					<span id="meals-label" class="property-label"><g:message code="meal.label" default="Meals" /></span>
+					
+						<g:each in="${feastInstance.meals}" var="m">
+						<span class="property-value" aria-labelledby="meals-label"><g:link controller="meal" action="show" id="${m.id}">${m?.person.username}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>	
+				<li class="fieldcontain">
+					<g:link controller="meal" action="create" params="['feast.id': feastInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'meal.label', default: 'meal')])}</g:link>
+				</li>		
 			
 			</ol>
 			<g:form>
