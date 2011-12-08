@@ -6,5 +6,5 @@ package thepig;
  *
  */
 public enum IngredientGroup {
-  BREAD,FILLING,SAUCE
+  BREAD_TYPE, BREAD_SHAPE,PIG_TYPE,VEG,EXTRA,SAUCE
 }

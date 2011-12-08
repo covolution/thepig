@@ -1,11 +1,13 @@
 package thepig
 
-class OrderItem {
+class Portion {
 
-	OrderLine orderLine
 	int quantity
 	Ingredient ingredient
 	
+	static belongsTo = [ meal: Meal]
+	
     static constraints = {
+		quantity(range:1..5)
     }
 }

@@ -26,7 +26,7 @@
 				</h3>
 				<nav>
 					<a href="/customers-we-love/">Customers</a>
-					<a href="/orders/">Orders</a>
+					<a href="eat/">Eat</a>
 					<sec:ifLoggedIn>
 						Welcome <sec:username />!, <g:link controller="logout">Logout</g:link>
 					</sec:ifLoggedIn>

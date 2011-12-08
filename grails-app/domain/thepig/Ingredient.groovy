@@ -4,6 +4,8 @@ class Ingredient {
 
 	String name
 	IngredientGroup ingredientGroup
+	
     static constraints = {
+		name(unique:'ingredientGroup')
     }
 }
