@@ -24,6 +24,8 @@ class BootStrap {
   
 		PersonRole.create testUser, adminRole, true
 		
+		new Ingredient(ingredientGroup:IngredientGroup.PIG_TYPE, name: "Bacon").save(flush:true)
+		new Ingredient(ingredientGroup:IngredientGroup.PIG_TYPE, name: "Sausage").save(flush:true)
 		new Ingredient(ingredientGroup:IngredientGroup.BREAD_TYPE, name: "White").save(flush:true)
 		new Ingredient(ingredientGroup:IngredientGroup.BREAD_TYPE, name: "Brown").save(flush:true)
 		new Ingredient(ingredientGroup:IngredientGroup.BREAD_SHAPE, name: 'Sandwich').save(flush:true)

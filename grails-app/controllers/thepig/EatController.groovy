@@ -7,22 +7,27 @@ class EatController {
 
 	def springSecurityService
 	
-    def index() { }
-	
 	def create = {
-		def theFeast = Feast.get(params.id)
+		def theFeast = Feast.find("from Feast as f order by f.dueAt desc") //last feast
 		def mealInstance = new Meal(feast:theFeast,person:springSecurityService.currentUser)
 		[mealInstance:mealInstance]
 	}
 	
 	def save = {
-		println params
-		def mealInstance = new Meal(params)
-		mealInstance.person = springSecurityService.currentUser
-		if (mealInstance.save(flush:true)) {
-		  flash.message = "Success"
+		def aMeal = new Meal(params)
+		aMeal.person = springSecurityService.currentUser
+		IngredientGroup.values().each  { iGroup ->
+			log.debug("Settings values for "+iGroup.toString())
+			params[iGroup.toString()+".ingredient.id"].each { ing ->
+				log.debug("Ingredient id is ${ing} ")
+				aMeal.addToPortions(new Portion(["ingredient.id":ing,"quantity":1]))
+			}
+		}
+		aMeal.person = springSecurityService.currentUser
+		if (aMeal.save(flush:true)) {
+		  flash.message = "Enjoy the feast"
 		} else {
-		  render(view:"create", model:[mealInstance:mealInstance])
+		  render(view:"create", model:[mealInstance:aMeal])
 		}
 	}
 }

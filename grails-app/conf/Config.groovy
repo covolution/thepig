@@ -105,7 +105,7 @@ log4j = {
 
     warn   'org.mortbay.log'
 
-    debug  'grails.app'
+    debug  'grails.app', 'thepig'
 
     root {
        error 'stdout'

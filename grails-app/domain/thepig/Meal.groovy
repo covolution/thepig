@@ -1,7 +1,10 @@
 package thepig
 
+import groovy.transform.ToString
+
 import com.thepig.Person
 
+@ToString
 class Meal {
 
 	Person person

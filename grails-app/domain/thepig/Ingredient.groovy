@@ -1,5 +1,8 @@
 package thepig
 
+import groovy.transform.ToString
+
+@ToString
 class Ingredient {
 
 	String name

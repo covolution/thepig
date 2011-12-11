@@ -1,5 +1,7 @@
 package thepig
 
+import groovy.transform.ToString
+
 import org.joda.time.DateTime
 
 import com.thepig.Person
@@ -9,6 +11,7 @@ import com.thepig.Person
  * @author gjames
  *
  */
+@ToString
 class Feast {
 
 	Person host

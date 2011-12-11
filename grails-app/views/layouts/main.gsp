@@ -22,11 +22,10 @@
 		<header>
 			<section class="wrap clear">
 				<h3 class="logo replace">
-					<a title="Home" href="/thepig"><img src="${resource(dir: 'images', file: 'pig_logo.jpg')}" alt="pig"/>The Pig</a>
+					<a title="Home" href="/thepig"><img src="${resource(dir: 'images', file: 'thepig.jpg')}" alt="pig"/></a>
 				</h3>
 				<nav>
-					<a href="/customers-we-love/">Customers</a>
-					<a href="eat/">Eat</a>
+					<g:link controller="eat" action="create" >Eat</g:link>
 					<sec:ifLoggedIn>
 						Welcome <sec:username />!, <g:link controller="logout">Logout</g:link>
 					</sec:ifLoggedIn>
@@ -42,6 +41,7 @@
 		<footer>
 			<section class="wrap">
 				<nav>
+					<sec:ifAllGranted roles="ROLE_ADMIN"><g:link controller="admin" >Admin</g:link></sec:ifAllGranted>
 					<a href="https://github.com/covolution/thepig">source code</a>
 					<p>Version:<g:meta name="app.version"/></p>
 				</nav>
