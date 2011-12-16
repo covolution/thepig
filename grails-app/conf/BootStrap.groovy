@@ -26,8 +26,8 @@ class BootStrap {
 		
 		new Ingredient(ingredientGroup:IngredientGroup.PIG_TYPE, name: "Bacon").save(flush:true)
 		new Ingredient(ingredientGroup:IngredientGroup.PIG_TYPE, name: "Sausage").save(flush:true)
-		new Ingredient(ingredientGroup:IngredientGroup.BREAD_TYPE, name: "White").save(flush:true)
-		new Ingredient(ingredientGroup:IngredientGroup.BREAD_TYPE, name: "Brown").save(flush:true)
+		new Ingredient(ingredientGroup:IngredientGroup.BREAD_TYPE, name: "White Bread").save(flush:true)
+		new Ingredient(ingredientGroup:IngredientGroup.BREAD_TYPE, name: "Brown Bread").save(flush:true)
 		new Ingredient(ingredientGroup:IngredientGroup.BREAD_SHAPE, name: 'Sandwich').save(flush:true)
 		new Ingredient(ingredientGroup:IngredientGroup.BREAD_SHAPE, name: "Roll").save(flush:true)
 		new Ingredient(ingredientGroup:IngredientGroup.BREAD_SHAPE, name: "Bap").save(flush:true)
@@ -35,8 +35,8 @@ class BootStrap {
 		new Ingredient(ingredientGroup:IngredientGroup.BREAD_SHAPE, name: "Baguette").save(flush:true)
 		new Ingredient(ingredientGroup:IngredientGroup.VEG, name: "Mushrooms").save(flush:true)
 		new Ingredient(ingredientGroup:IngredientGroup.EXTRA, name: "Fried Egg").save(flush:true)
-		new Ingredient(ingredientGroup:IngredientGroup.SAUCE, name: "Red").save(flush:true)
-		new Ingredient(ingredientGroup:IngredientGroup.SAUCE, name: "Brown").save(flush:true)
+		new Ingredient(ingredientGroup:IngredientGroup.SAUCE, name: "Red Sauce").save(flush:true)
+		new Ingredient(ingredientGroup:IngredientGroup.SAUCE, name: "Brown Sauce").save(flush:true)
 		
 		new Feast(host:testUser, status:FeastStatus.OPEN, dueAt:new DateTime()).save(flush:true)
     }
