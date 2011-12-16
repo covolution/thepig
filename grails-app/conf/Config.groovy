@@ -122,6 +122,9 @@ grails.gorm.default.mapping = {
 	"user-type" type: PersistentLocalDate, class: LocalDate
 	"user-type" type: PersistentLocalDateTime, class:LocalDateTime
 }
+
+grails.mail.jndiName = "mail/SendGrid"
+
 // Added by the Spring Security Core plugin:
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.thepig.Person'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.thepig.PersonRole'

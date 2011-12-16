@@ -16,11 +16,15 @@ class EatController {
 	def save = {
 		def aMeal = new Meal(params)
 		aMeal.person = springSecurityService.currentUser
+		List<String> igs = new ArrayList<String>()
 		IngredientGroup.values().each  { iGroup ->
-			log.debug("Settings values for "+iGroup.toString())
-			params[iGroup.toString()+".ingredient.id"].each { ing ->
-				log.debug("Ingredient id is ${ing} ")
-				aMeal.addToPortions(new Portion(["ingredient.id":ing,"quantity":1]))
+			println ("Settings values for "+iGroup.toString())
+			igs << params[iGroup.toString()+".ingredient.id"]
+		}
+		println igs
+		igs.flatten()?.each() {
+			if (it) { //ignores null
+			  aMeal.addToPortions(new Portion(["ingredient.id":it,"quantity":1]))
 			}
 		}
 		aMeal.person = springSecurityService.currentUser

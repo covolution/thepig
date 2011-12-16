@@ -1,4 +1,3 @@
-<%@ page import="thepig.Portion" %>
 <g:hiddenField name="feast.id" value="${mealInstance?.feast?.id}" />
 <style type="text/css" media="screen">
 
