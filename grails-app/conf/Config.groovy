@@ -73,7 +73,15 @@ environments {
     production {
         grails.logging.jul.usebridge = false
         grails.serverURL = "http://thepig.covolution.cloudbees.net"
-        grails.mail.jndiName = "mail/SendGrid"
+        grails {
+           mail {
+             host = System.properties["SENDGRID_SMTP_HOST"]
+             port = 587
+             username = System.properties["SENDGRID_USERNAME"]
+             password = System.properties["SENDGRID_PASSWORD"]
+		     props = ["mail.smtp.starttls.enable":"true", "mail.smtp.port":"587"]
+           }
+        }
     }
 }
 
