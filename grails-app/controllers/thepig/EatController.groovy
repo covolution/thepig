@@ -21,7 +21,6 @@ class EatController {
 			println ("Settings values for "+iGroup.toString())
 			igs << params[iGroup.toString()+".ingredient.id"]
 		}
-		println igs
 		igs.flatten()?.each() {
 			if (it) { //ignores null
 			  aMeal.addToPortions(new Portion(["ingredient.id":it,"quantity":1]))
@@ -30,6 +29,11 @@ class EatController {
 		aMeal.person = springSecurityService.currentUser
 		if (aMeal.save(flush:true)) {
 		  flash.message = "Enjoy the feast"
+		  sendMail {
+			  to aMeal.feast.host.email
+			  subject "New Pig Order"
+			  html(view:"/eat/emailContent", model: [theMeal:aMeal, theHost:aMeal.feast.host, theUser:springSecurityService.currentUser] )
+		  }
 		} else {
 		  render(view:"create", model:[mealInstance:aMeal])
 		}

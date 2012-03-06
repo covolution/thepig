@@ -20,9 +20,9 @@
 			</div>
 		</g:if>
 		<r:img id="bigpig" uri="/images/bigpig.jpg" />
-		<audio preload="auto" autoplay>
-			<source src="sounds/snort.mp3" type="audio/mp3" />
-			<source src="sounds/snort.wav" type="audio/wav" />
+		<audio id="oinkAudio" autoplay>
+			<source src="/sounds/snort.mp3" type="audio/mp3" />
+			<source src="/sounds/snort.wav" type="audio/wav" />
 			Oink Oink
 		</audio>		
 	</section>

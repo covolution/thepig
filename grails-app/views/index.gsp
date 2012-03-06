@@ -19,11 +19,11 @@
 					Please <g:link controller="login">Login</g:link>
 				</sec:ifNotLoggedIn>
 			</p>
-		  </section><%--
-		  <audio preload="auto" autoplay> 
+		  </section>
+		  <!--audio preload="auto" autoplay> 
   			<source src="sounds/snort.mp3" type="audio/mp3"/>
   			<source src="sounds/snort.wav" type="audio/wav" />
   			Oink Oink
-		  </audio> 
-	--%></body>
+		  </audio--> 
+	</body>
 </html>

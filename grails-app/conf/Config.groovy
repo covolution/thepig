@@ -41,12 +41,6 @@ grails.mime.types = [ html: ['text/html','application/xhtml+xml'],
 // What URL patterns should be processed by the resources plugin
 grails.resources.adhoc.patterns = ['/images/*', '/css/*', '/js/*', '/plugins/*']
 
-grails.resources.modules = {
-	modernizr {
-		dependsOn 'jquery'
-		resource url:'/js/modernizr-2.0.6.min.js', disposition: 'head'
-	}
-}
 // The default codec used to encode data with ${}
 grails.views.default.codec = "none" // none, html, base64
 grails.views.gsp.encoding = "UTF-8"
@@ -78,7 +72,8 @@ environments {
     }
     production {
         grails.logging.jul.usebridge = false
-        grails.serverURL = "http://www.changeme.com"
+        grails.serverURL = "http://thepig.covolution.cloudbees.net"
+        grails.mail.jndiName = "mail/SendGrid"
     }
 }
 
@@ -122,8 +117,6 @@ grails.gorm.default.mapping = {
 	"user-type" type: PersistentLocalDate, class: LocalDate
 	"user-type" type: PersistentLocalDateTime, class:LocalDateTime
 }
-
-grails.mail.jndiName = "mail/SendGrid"
 
 // Added by the Spring Security Core plugin:
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.thepig.Person'

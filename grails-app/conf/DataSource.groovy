@@ -29,7 +29,11 @@ environments {
     }
     production {
         dataSource {
-          dbCreate = "create"
+		
+//			driverClassName = "com.mysql.jdbc.Driver"
+//			dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
+			
+          dbCreate = "update"
           url = "jdbc:cloudbees://pigdb"
           username = "pigit"
           password = "pigout"
