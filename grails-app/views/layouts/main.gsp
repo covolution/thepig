@@ -22,7 +22,7 @@
 		<header>
 			<section class="wrap clear">
 				<h3 class="logo replace">
-					<a title="Home" href="/thepig"><img src="${resource(dir: 'images', file: 'thepig.jpg')}" alt="pig"/></a>
+					<g:link title="Home" absolute="true"><img src="${resource(dir: 'images', file: 'thepig.jpg')}" alt="pig"/></g:link>
 				</h3>
 				<nav>
 					<g:link controller="eat" action="create" >Eat</g:link>
@@ -30,7 +30,7 @@
 						Welcome <sec:username />!, <g:link controller="logout">Logout</g:link>
 					</sec:ifLoggedIn>
 					<sec:ifNotLoggedIn>
-						<a class="login" href="/thepig/login">Login</a>
+						<g:link class="login" controller="login">Login</g:link>
 					</sec:ifNotLoggedIn>
 				</nav>
 			</section>
