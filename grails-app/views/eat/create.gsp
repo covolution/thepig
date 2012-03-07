@@ -8,6 +8,7 @@
 	</head>
 	<body>
 		<div id="create-meal" class="content scaffold-create" role="main">
+		  <g:if test="${mealInstance?.feast}">
 			<h1>Create your Pig Meal for the Feast at <joda:format value="${mealInstance?.feast?.dueAt}" /> with ${mealInstance?.feast?.host?.forename}</h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
@@ -27,6 +28,10 @@
 					<g:submitButton name="create" class="save" value="Create My Pig Order" />
 				</fieldset>
 			</g:form>
+		  </g:if>
+		  <g:else>
+		    <h1>There are no feasts for you to currently enjoy.</h1>
+		  </g:else>
 		</div>
 	</body>
 </html>

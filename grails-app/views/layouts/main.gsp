@@ -22,7 +22,7 @@
 		<header>
 			<section class="wrap clear">
 				<h3 class="logo replace">
-					<g:link title="Home" absolute="true"><img src="${resource(dir: 'images', file: 'thepig.jpg')}" alt="pig"/></g:link>
+					<g:link title="Home" absolute="true" url="/"><img src="${resource(dir: 'images', file: 'thepig.jpg')}" alt="pig"/></g:link>
 				</h3>
 				<nav>
 					<g:link controller="eat" action="create" >Eat</g:link>
