@@ -1,7 +1,8 @@
 package thepig
 
-import org.springframework.dao.DataIntegrityViolationException
+import grails.plugins.springsecurity.Secured
 
+@Secured(['ROLE_USER'])
 class MealController {
 
   static scaffold = Meal
