@@ -29,11 +29,11 @@ class EatController {
 		aMeal.person = springSecurityService.currentUser
 		if (aMeal.save(flush:true)) {
 		  flash.message = "Enjoy the feast"
-		  sendMail {
-			  to aMeal.feast.host.email
-			  subject "New Pig Order"
-			  html(view:"/eat/emailContent", model: [theMeal:aMeal, theHost:aMeal.feast.host, theUser:springSecurityService.currentUser] )
-		  }
+//		  sendMail {
+//			  to aMeal.feast.host.email
+//			  subject "New Pig Order"
+//			  html(view:"/eat/emailContent", model: [theMeal:aMeal, theHost:aMeal.feast.host, theUser:springSecurityService.currentUser] )
+//		  }
 		} else {
 		  render(view:"create", model:[mealInstance:aMeal])
 		}
