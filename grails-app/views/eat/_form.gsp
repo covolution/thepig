@@ -48,7 +48,15 @@
     	<g:hiddenField name="EXTRA.quantity" value="1" />
     </g:each>
   </fieldset>
-   <fieldset class="sauceSet">
+  <fieldset class="cheeseSet">
+  <legend>Cheese</legend>  
+    <g:each in="${thepig.Ingredient.findAllWhere(ingredientGroup:thepig.IngredientGroup.CHEESE)}">
+    	${it.name}<input type="radio" value="${it.id}" name="CHEESE.ingredient.id">
+    </g:each>
+    None<input type="radio" value="999" name="CHEESE.ingredient.id" id="noCheese">    
+   	<g:hiddenField name="CHEESE.quantity" value="1" />                   
+  </fieldset> 
+  <fieldset class="sauceSet">
   <legend>Sauce</legend>  
     <g:each in="${thepig.Ingredient.findAllWhere(ingredientGroup:thepig.IngredientGroup.SAUCE)}">
     	${it.name}<input type="radio" value="${it.id}" name="SAUCE.ingredient.id">
@@ -63,6 +71,11 @@
 	  if (checkedVal == 999) {
 	    //No sauce so disable this set from submission.
 	    $("#eatForm fieldset.sauceSet input[type='radio']").attr('disabled', true);
+	  }
+	  var cheeseVal = $("#eatForm fieldset.cheeseSet input[type='radio']:checked").val();
+	  if (cheeseVal == 999) {
+	    //No cheese so disable this set from submission.
+	    $("#eatForm fieldset.cheeseSet input[type='radio']").attr('disabled', true);
 	  }
 	  $("#eatForm fieldset.buttons input").hide();
 	});
