@@ -9,7 +9,7 @@ class Person {
 	String forename
 	String surname
 	String email
-	boolean enabled
+	boolean enabled = true
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired

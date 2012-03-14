@@ -1,4 +1,4 @@
-package com.thepig.users
+package com.thepig
 
 import grails.plugins.springsecurity.Secured
 
@@ -10,25 +10,19 @@ class PersonController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
-	def springSecurityService
-	
-	@Secured(['ROLE_ADMIN'])
     def index() {
         redirect(action: "list", params: params)
     }
 
-	@Secured(['ROLE_ADMIN'])
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [personInstanceList: Person.list(params), personInstanceTotal: Person.count()]
     }
 
-	@Secured(['ROLE_ADMIN'])
     def create() {
         [personInstance: new Person(params)]
     }
 
-	@Secured(['ROLE_ADMIN'])
     def save() {
         def personInstance = new Person(params)
         if (!personInstance.save(flush: true)) {
@@ -40,7 +34,6 @@ class PersonController {
         redirect(action: "show", id: personInstance.id)
     }
 
-	@Secured(['ROLE_ADMIN'])
     def show() {
         def personInstance = Person.get(params.id)
         if (!personInstance) {
@@ -52,7 +45,6 @@ class PersonController {
         [personInstance: personInstance]
     }
 
-	@Secured(['ROLE_ADMIN'])
     def edit() {
         def personInstance = Person.get(params.id)
         if (!personInstance) {
@@ -64,10 +56,6 @@ class PersonController {
         [personInstance: personInstance]
     }
 
-	@Secured(['ROLE_USER'])
-	def cpassword() { model:[personInstance:springSecurityService.currentUser]}
-	
-	@Secured(['ROLE_USER'])
     def update() {
         def personInstance = Person.get(params.id)
         if (!personInstance) {
@@ -95,7 +83,7 @@ class PersonController {
         }
 
 		flash.message = message(code: 'default.updated.message', args: [message(code: 'person.label', default: 'Person'), personInstance.id])
-        redirect(uri:"/")
+        redirect(action: "show", id: personInstance.id)
     }
 
 	@Secured(['ROLE_ADMIN'])

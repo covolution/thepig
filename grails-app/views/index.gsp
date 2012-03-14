@@ -14,6 +14,9 @@
 		  <section class="wrap">
 		  	<h1>Welcome to The Pig</h1>
 		  	<h2>A pig of beauty is a joy forever</h2>
+		  	<g:if test="${flash.message}">
+			<div class="message" role="status">${flash.message}</div>
+			</g:if>
 			<p>
 				<sec:ifNotLoggedIn>
 					Please <g:link controller="login">Login</g:link>

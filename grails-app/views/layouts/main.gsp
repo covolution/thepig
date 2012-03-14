@@ -42,6 +42,9 @@
 			<section class="wrap">
 				<nav>
 					<sec:ifAllGranted roles="ROLE_ADMIN"><g:link controller="admin" >Admin</g:link></sec:ifAllGranted>
+					<sec:ifLoggedIn>
+					  <g:link controller="person" action="cpassword" >Change password</g:link>
+					</sec:ifLoggedIn>
 					<a href="https://github.com/covolution/thepig">source code</a>
 					<p>Version:<g:meta name="app.version"/></p>
 				</nav>
