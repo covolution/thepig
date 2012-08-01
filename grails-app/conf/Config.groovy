@@ -77,8 +77,8 @@ environments {
 }
 
 sendgrid {
-  username = "${System.getenv['SENDGRID_USERNAME']}"
-  password = "${System.getenv['SENDGRID_PASSWORD']}"
+  username = "${System.getenv('SENDGRID_USERNAME')}"
+  password = "${System.getenv('SENDGRID_PASSWORD')}"
 }
 // log4j configuration
 log4j = {
