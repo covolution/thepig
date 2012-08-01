@@ -29,15 +29,8 @@ environments {
     }
     production {
         dataSource {
-		
-//			driverClassName = "com.mysql.jdbc.Driver"
-//			dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
 			
           dbCreate = "update"
-          url = "jdbc:cloudbees://pigdb"
-          username = "pigit"
-          password = "pigout"
-          driverClassName = "com.cloudbees.jdbc.Driver"
            // For MySQL production scenarios enable the following settings
           properties {
                minEvictableIdleTimeMillis=1800000

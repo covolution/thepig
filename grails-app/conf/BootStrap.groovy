@@ -36,8 +36,8 @@ class BootStrap {
 		   println "Error occurred parsing VCAP_SERVICES: $e.message"
 		}
 
-		println "SENDGRID_USERNAME: ${System.properties["SENDGRID_USERNAME"]}"
-		println "SENDGRID_PASSWORD: ${System.properties["SENDGRID_PASSWORD"]}"
+		println "SENDGRID_USERNAME: ${System.getenv["SENDGRID_USERNAME"]}"
+		println "SENDGRID_PASSWORD: ${System.getenv["SENDGRID_PASSWORD"]}"
 
 		JavascriptTagLib.LIBRARY_MAPPINGS.modernizr = ["modernizr-2.0.6.min.js"]
 //		

@@ -72,19 +72,14 @@ environments {
     }
     production {
         grails.logging.jul.usebridge = false
-        grails.serverURL = "http://thepig.covolution.cloudbees.net"
-        grails {
-           mail {
-             host = System.properties["SENDGRID_SMTP_HOST"]
-             port = 587
-             username = System.properties["SENDGRID_USERNAME"]
-             password = System.properties["SENDGRID_PASSWORD"]
-		     props = ["mail.smtp.starttls.enable":"true", "mail.smtp.port":"587"]
-           }
-        }
+        grails.serverURL = "http://thepig.cloudfoundry.com"
     }
 }
 
+sendgrid {
+  username = "${System.getenv['SENDGRID_USERNAME']}"
+  password = "${System.getenv['SENDGRID_PASSWORD']}"
+}
 // log4j configuration
 log4j = {
     // Example of changing the log pattern for the default console
