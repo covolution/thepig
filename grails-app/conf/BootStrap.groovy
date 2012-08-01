@@ -1,6 +1,8 @@
 import org.codehaus.groovy.grails.plugins.web.taglib.JavascriptTagLib
 import org.joda.time.DateTime
 
+import grails.converters.JSON
+
 import thepig.Feast
 import thepig.FeastStatus
 import thepig.Ingredient
@@ -14,6 +16,29 @@ class BootStrap {
 
     def init = { servletContext ->
 		
+		String VCAP_SERVICES = System.getenv('VCAP_SERVICES')
+		println "VCAP_SERVICES: ${System.getenv('VCAP_SERVICES')}"
+  
+		try {
+		   def servicesMap = JSON.parse(VCAP_SERVICES)
+		   servicesMap.each { key, services ->
+			  if (key.startsWith('mysql')) {
+				 for (service in services) {
+					print "MySQL service $service.name: "
+					print "url='jdbc:mysql://$service.credentials.hostname:$service.credentials.port/$service.credentials.name', "
+					print "user='$service.credentials.user', "
+					println "password='$service.credentials.password'n"
+				 }
+			  }
+		   }
+		}
+		catch (e) {
+		   println "Error occurred parsing VCAP_SERVICES: $e.message"
+		}
+
+		println "SENDGRID_USERNAME: ${System.properties["SENDGRID_USERNAME"]}"
+		println "SENDGRID_PASSWORD: ${System.properties["SENDGRID_PASSWORD"]}"
+
 		JavascriptTagLib.LIBRARY_MAPPINGS.modernizr = ["modernizr-2.0.6.min.js"]
 //		
 //		def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
