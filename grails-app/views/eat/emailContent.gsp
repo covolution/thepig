@@ -11,7 +11,7 @@
         body { -webkit-text-size-adjust: none; -ms-text-size-adjust: none; } /* Prevent Webkit and Windows Mobile platforms from changing default font sizes. */
 
         /* Reset Styles */
-        body { margin: 0; padding: 0; }
+        body { margin: 5; padding: 10; }
         img { height: auto; line-height: 100%; outline: none; text-decoration: none; }
         #backgroundTable { height: 100% !important; margin: 0; padding: 0; width: 100% !important; }
     
