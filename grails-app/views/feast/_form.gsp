@@ -13,7 +13,8 @@
 		<g:message code="feast.host.label" default="Host" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="host" name="host.id" from="${com.thepig.Person.list()}" optionKey="id" optionValue="username" required="" value="${feastInstance?.host?.id}" class="many-to-one"/>
+	<g:select id="host" name="host.id" from="${com.thepig.Person.list()}" optionKey="id" optionValue="username" required=""
+	 value="2" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: feastInstance, field: 'status', 'error')} required">
