@@ -36,7 +36,8 @@
 				<g:each in="${feastInstanceList}" status="i" var="feastInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${feastInstance.id}">${fieldValue(bean: feastInstance, field: "dueAt")}</g:link></td>
+						<td><g:link action="show" id="${feastInstance.id}">
+						<joda:format value="${feastInstance?.dueAt}" /></g:link></td>
 					
 						<td>${fieldValue(bean: feastInstance, field: "host.username")}</td>
 					

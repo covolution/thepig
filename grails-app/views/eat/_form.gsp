@@ -42,7 +42,6 @@
     	${it.name}<input type="checkbox" value="${it.id}" name="VEG.ingredient.id">
     	<g:hiddenField name="VEG.quantity" value="1" />
     </g:each>
-    <br />  
     <g:each in="${thepig.Ingredient.findAllWhere(ingredientGroup:thepig.IngredientGroup.EXTRA)}">
     	${it.name}<input type="checkbox" value="${it.id}" name="EXTRA.ingredient.id">
     	<g:hiddenField name="EXTRA.quantity" value="1" />
@@ -54,7 +53,7 @@
     	${it.name}<input type="radio" value="${it.id}" name="CHEESE.ingredient.id">
     </g:each>
     None<input type="radio" value="999" name="CHEESE.ingredient.id" id="noCheese">    
-   	<g:hiddenField name="CHEESE.quantity" value="1" />                   
+   	<g:hiddenField name="CHEESE.quantity" value="1" />
   </fieldset> 
   <fieldset class="sauceSet">
   <legend>Sauce</legend>  
@@ -62,7 +61,7 @@
     	${it.name}<input type="radio" value="${it.id}" name="SAUCE.ingredient.id">
     </g:each>
     None<input type="radio" value="999" name="SAUCE.ingredient.id" id="noSauce">    
-   	<g:hiddenField name="SAUCE.quantity" value="1" />                   
+   	<g:hiddenField name="SAUCE.quantity" value="1" />
   </fieldset> 
 </div>  
 <r:script>

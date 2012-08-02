@@ -27,7 +27,7 @@
 				<li class="fieldcontain">
 					<span id="dueAt-label" class="property-label"><g:message code="feast.dueAt.label" default="Due At" /></span>
 					
-						<span class="property-value" aria-labelledby="dueAt-label"><g:fieldValue bean="${feastInstance}" field="dueAt"/></span>
+						<span class="property-value" aria-labelledby="dueAt-label"><joda:format value="${feastInstance?.dueAt}" /></span>
 					
 				</li>
 				</g:if>
@@ -56,6 +56,9 @@
 					
 						<g:each in="${feastInstance.meals}" var="m">
 						<span class="property-value" aria-labelledby="meals-label"><g:link controller="meal" action="show" id="${m.id}">${m?.person.username}</g:link></span>
+						<span class="property-value" aria-labelledby="portions-label">
+							<g:join in="${m.portions*.ingredient.sort{it.id}.name}" delimiter=", "/>
+						</span>
 						</g:each>
 					
 				</li>

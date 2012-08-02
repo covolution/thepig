@@ -97,7 +97,8 @@
 		</div>
 		<div id="page-body" role="main">
 			<h1>Grails Admin</h1>
-			<p>Why not start a <g:link controller="feast">Feast</g:link>?</p>
+			<p>Why not start a <g:link controller="feast">Feast</g:link>? 
+				or <g:link controller="person" action="create">Create a user</g:link>?
 			<p>Below is a list of controllers that are currently deployed in this application,
 			   click on each to execute its default action:</p>
 

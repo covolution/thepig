@@ -23,10 +23,10 @@
 				</sec:ifNotLoggedIn>
 			</p>
 		  </section>
-		  <audio preload="auto" autoplay> 
+		  <!--audio preload="auto" autoplay> 
   			<source src="sounds/snort.mp3" type="audio/mp3"/>
   			<source src="sounds/snort.wav" type="audio/wav" />
   			Oink Oink
-		  </audio> 
+		  </audio--> 
 	</body>
 </html>
