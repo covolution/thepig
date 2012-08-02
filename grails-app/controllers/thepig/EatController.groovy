@@ -8,6 +8,7 @@ class EatController {
 
 	def springSecurityService
 	def sendGridService
+	def pigwatchService
 	PageRenderer groovyPageRenderer
 
 	def create = {
@@ -21,7 +22,6 @@ class EatController {
 		aMeal.person = springSecurityService.currentUser
 		List<String> igs = new ArrayList<String>()
 		IngredientGroup.values().each  { iGroup ->
-			println ("Settings values for "+iGroup.toString())
 			igs << params[iGroup.toString()+".ingredient.id"]
 		}
 		igs.flatten()?.each() {
@@ -29,9 +29,9 @@ class EatController {
 			  aMeal.addToPortions(new Portion(["ingredient.id":it,"quantity":1]))
 			}
 		}
-		aMeal.person = springSecurityService.currentUser
 		if (aMeal.save(flush:true)) {
 		  flash.message = "Enjoy the feast"
+		  pigwatchService.orderCreated(aMeal.person, aMeal)
 		  String emailContent =  groovyPageRenderer.render view:"/eat/emailContent", model: [theMeal:aMeal, theHost:aMeal.feast.host, theUser:springSecurityService.currentUser]
 		  sendGridService.sendMail {
 		  	  from 'thepig@covolution.co.uk'
