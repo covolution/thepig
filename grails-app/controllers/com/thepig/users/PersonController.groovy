@@ -5,6 +5,8 @@ import grails.plugins.springsecurity.Secured
 import org.springframework.dao.DataIntegrityViolationException
 
 import com.thepig.Person;
+import com.thepig.Role;
+import com.thepig.PersonRole;
 
 class PersonController {
 
@@ -28,18 +30,22 @@ class PersonController {
         [personInstance: new Person(params)]
     }
 
-	@Secured(['ROLE_ADMIN'])
-    def save() {
-        def personInstance = new Person(params)
-        if (!personInstance.save(flush: true)) {
-            render(view: "create", model: [personInstance: personInstance])
-            return
-        }
-
+	def register() {
+		[personInstance: new Person(params)]
+	}
+	
+	def save() {
+		def personInstance = new Person(params)
+		def userRole = Role.findByAuthority('ROLE_USER')
+		if (!personInstance.save(flush: true)) {
+			render(view: "create", model: [personInstance: personInstance])
+			return
+		}
+		PersonRole.create personInstance, userRole, true
 		flash.message = message(code: 'default.created.message', args: [message(code: 'person.label', default: 'Person'), personInstance.id])
-        redirect(action: "show", id: personInstance.id)
-    }
-
+		redirect(uri: "/")
+	}
+	
 	@Secured(['ROLE_ADMIN'])
     def show() {
         def personInstance = Person.get(params.id)

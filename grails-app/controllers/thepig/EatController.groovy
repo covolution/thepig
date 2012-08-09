@@ -8,7 +8,7 @@ class EatController {
 	def springSecurityService
 
 	def create = {
-		def theFeast = Feast.find("from Feast as f order by f.dueAt desc") //last feast
+		def theFeast = Feast.find("from Feast as f where f.status = ? order by f.dueAt desc ", [FeastStatus.OPEN]) //last feast
 		def mealInstance = new Meal(feast:theFeast,person:springSecurityService.currentUser)
 		[mealInstance:mealInstance]
 	}

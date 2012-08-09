@@ -29,7 +29,7 @@
 							<g:message code="person.password.label" default="Password" />
 							<span class="required-indicator">*</span>
 						</label>
-						<g:textField name="password" required="" value=""/>
+						<g:passwordField name="password" required="" value=""/>
 					</div>
 				</fieldset>
 				<fieldset class="buttons">
