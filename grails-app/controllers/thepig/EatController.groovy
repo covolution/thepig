@@ -1,15 +1,11 @@
 package thepig
 
 import grails.plugins.springsecurity.Secured
-import grails.gsp.PageRenderer
 
 @Secured(['ROLE_USER'])
 class EatController {
 
 	def springSecurityService
-	def sendGridService
-	def pigwatchService
-	PageRenderer groovyPageRenderer
 
 	def create = {
 		def theFeast = Feast.find("from Feast as f order by f.dueAt desc") //last feast
@@ -31,14 +27,8 @@ class EatController {
 		}
 		if (aMeal.save(flush:true)) {
 		  flash.message = "Enjoy the feast"
-		  pigwatchService.orderCreated(aMeal.person, aMeal)
-		  String emailContent =  groovyPageRenderer.render view:"/eat/emailContent", model: [theMeal:aMeal, theHost:aMeal.feast.host, theUser:springSecurityService.currentUser]
-		  sendGridService.sendMail {
-		  	  from 'thepig@covolution.co.uk'
-			  to aMeal.feast.host.email
-			  subject "New Pig Order"
-			  html emailContent
-		  }
+		  def event = new MealCreatedEvent(aMeal)
+      	  publishEvent(event)
 		} else {
 		  render(view:"create", model:[mealInstance:aMeal])
 		}

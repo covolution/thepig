@@ -1,9 +1,14 @@
 package thepig
 import com.thepig.Person
+import org.springframework.context.ApplicationListener
+import grails.gsp.PageRenderer
 
-class PigwatchService {
+class PigwatchService implements ApplicationListener<MealCreatedEvent> {
 
     static transactional = false
+    def sendGridService
+    PageRenderer groovyPageRenderer
+
 //    static atmosphere = [mapping: '/atmosphere/pigMessage']
 //                                        
 //    def onRequest = { event ->
@@ -26,9 +31,27 @@ class PigwatchService {
 //            }
 //        }
 //    }
-    def orderCreated(Person person, Meal meal) {
-    	String ingredients = meal.portions*.ingredient.sort{it.id}.name.join(", ")
-    	println "${person.forename} has ordered ${ingredients}."
-    	//broadcaster['/atmosphere/pigMessage'].broadcast("${person.forename} has ordered ${ingredients}.")
+
+//    void onApplicationEvent(FeastCreatedEvent event) {
+//        Feast feast = event.source
+//        log.info "${feast.host.forename} has declared a feast for ${feast.dueAt}."
+//    }
+
+    void onApplicationEvent(MealCreatedEvent event) {
+        Meal meal = event.source
+        String ingredients = meal.portions*.ingredient.sort{it.id}.name.join(", ")
+        log.info "${meal.person.forename} has ordered ${ingredients}."
+        sendMailCreatedEmail(meal)
     }
+
+    void sendMailCreatedEmail(Meal aMeal){
+          String emailContent =  groovyPageRenderer.render view:"/eat/emailContent", model: [theMeal:aMeal, theHost:aMeal.feast.host, theUser:aMeal.person]
+          sendGridService.sendMail {
+              from 'thepig@covolution.co.uk'
+              to aMeal.feast.host.email
+              subject "New Pig Order"
+              html emailContent
+          }
+    }
+
 }

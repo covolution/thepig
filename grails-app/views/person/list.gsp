@@ -32,7 +32,7 @@
 					
 						<g:sortableColumn property="email" title="${message(code: 'person.email.label', default: 'Email')}" />
 					
-						<g:sortableColumn property="accountExpired" title="${message(code: 'person.accountExpired.label', default: 'Account Expired')}" />
+						<g:sortableColumn property="enabled" title="${message(code: 'person.enabled.label', default: 'Enabled')}" />
 						
 						<g:sortableColumn property="password" title="${message(code: 'person.password.label', default: 'Password')}" />				
 					</tr>
@@ -49,7 +49,7 @@
 					
 						<td>${fieldValue(bean: personInstance, field: "email")}</td>
 					
-						<td><g:formatBoolean boolean="${personInstance.accountExpired}" /></td>
+						<td><g:formatBoolean boolean="${personInstance.enabled}" /></td>
 										
 						<td>${fieldValue(bean: personInstance, field: "password")}</td>
 					</tr>
