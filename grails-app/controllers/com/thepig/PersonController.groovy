@@ -23,6 +23,10 @@ class PersonController {
         [personInstance: new Person(params)]
     }
 
+    def register() {
+        [personInstance: new Person(params)]
+    }
+
     def save() {
         def personInstance = new Person(params)
         def userRole = Role.findByAuthority('ROLE_USER')
@@ -33,7 +37,7 @@ class PersonController {
         }
         PersonRole.create personInstance, userRole, true
 		flash.message = message(code: 'default.created.message', args: [message(code: 'person.label', default: 'Person'), personInstance.id])
-        redirect(action: "show", id: personInstance.id)
+        redirect(uri: "/")
     }
 
     def show() {
