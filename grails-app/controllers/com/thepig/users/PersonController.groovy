@@ -30,6 +30,16 @@ class PersonController {
         [personInstance: new Person(params)]
     }
 
+    @Secured(['ROLE_ADMIN'])
+    def makeAdmin() {
+        def personInstance = Person.get(params.id)
+        def adminRole = Role.findByAuthority('ROLE_ADMIN')
+        PersonRole.create personInstance, adminRole, true
+        flash.message = "${personInstance.forename} is now an administrator."
+        redirect(action: "list")
+        return
+    }
+
 	def register() {
 		[personInstance: new Person(params)]
 	}
