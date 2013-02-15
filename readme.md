@@ -19,12 +19,14 @@ Here are the requirements:
 ## Project information
 
 * Source: https://github.com/covolution/thepig
-* Web site: http://goo.gl/EUXcB
+* Web site: http://goo.gl/Go2Te
 * Build: https://covolution.ci.cloudbees.com/job/thepig/
 
 ## Major components:
 
-* Grails: www.grails.org
+* Grails 2.2.0: www.grails.org
+* SendGrid
+* CloudFoundry
 
 ## License
 
