@@ -21,7 +21,10 @@ grails.project.dependency.resolution = {
         grailsHome()
         grailsCentral()
         mavenCentral()
-
+        mavenLocal()
+        mavenRepo "http://maven.springframework.org/milestone/"
+        mavenRepo "https://oss.sonatype.org/content/groups/public"
+        mavenRepo "http://repo.desirableobjects.co.uk/"
         // uncomment these to enable remote dependency resolution from public Maven repositories
         //mavenCentral()
         //mavenLocal()
@@ -41,11 +44,16 @@ grails.project.dependency.resolution = {
 
     plugins {
 		runtime ":hibernate:$grailsVersion"
-		runtime ":jquery:1.7.1"
+		runtime ":jquery:1.8.3"
+        compile ":jquery-ui:1.8.24"
 		runtime ":resources:1.1.6"
 		compile ":webxml:1.4.1"
-		runtime ":database-migration:1.0"
+		runtime ":database-migration:1.3.2"
 		compile ":spring-security-core:1.2.7.3"
+        compile ":spring-events:1.2"
+        compile ":joda-time:1.4"
+        compile ":cloud-foundry:1.2.3"
+        runtime ":sendgrid:1.1"
 		// Uncomment these (or add new ones) to enable additional resources capabilities
 		//runtime ":zipped-resources:1.0"
 		//runtime ":cached-resources:1.0"
